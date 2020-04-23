@@ -42,11 +42,10 @@ pipeline {
            }
       }
       stage('Scan') {
-            snDevOpsStep ()
             parallel {
                stage("tpsr scan") {
                       steps{
-                           //snDevOpsStep ()
+                           snDevOpsStep ()
                            echo "TPSR scan in progress"
                            sleep 5
                        }
@@ -54,7 +53,7 @@ pipeline {
       
                stage("Security scan") {
                       steps{
-                           //snDevOpsStep ()
+                           snDevOpsStep ()
                            echo "Security/Vulnarability scan in progress"
                            sleep 5
                        }
