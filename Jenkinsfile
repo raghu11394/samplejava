@@ -26,14 +26,55 @@ pipeline {
           }
         }
     
+      stage("auto") {
+             steps{
+                  snDevOpsStep ()
+                  echo "automation step"
+                  sleep 5
+              }
+      }
+      
+      stage("sonar") {
+             steps{
+                  snDevOpsStep ()
+                  echo "sonar scan"
+                  sleep 5
+              }
+      }
+      
+      stage("tpsr scan") {
+             steps{
+                  snDevOpsStep ()
+                  echo "TPSR scan in progress"
+                  sleep 5
+              }
+      }
+      
+      stage("Security scan") {
+             steps{
+                  snDevOpsStep ()
+                  echo "Security/Vulnarability scan in progress"
+                  sleep 5
+              }
+      }
+      
+      stage("Push the artifact") {
+             steps{
+                  snDevOpsStep ()
+                  echo "push artifact to nexus"
+                  sleep 5
+              }
+      }
+      
       stage("deploy") {
              steps{
                   snDevOpsStep ()
                   echo "deploy in prod"
-                  echo "deploy in prod"
+                  sleep 5
                   snDevOpsChange()              
               }
-      }      
+      }
+      
       
   }
 }
