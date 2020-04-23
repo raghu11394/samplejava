@@ -41,16 +41,7 @@ pipeline {
                sleep 5
            }
       }
-      stage("dummy") {
-          when {
-                   expression { return true }
-          }
-          steps{
-               snDevOpsStep ()
-               echo "dummy step"
-               sleep 5
-           }
-      }
+      
       stage("long step") {
             parallel {
                stage("tpsr scan") {
