@@ -43,7 +43,7 @@ pipeline {
       }
       stage("dummy") {
           when {
-                   expression { return false }
+                   expression { return true }
           }
           steps{
                snDevOpsStep ()
