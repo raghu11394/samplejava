@@ -27,27 +27,19 @@ pipeline {
         }
     
       stage("auto") {
-             steps{
-                  snDevOpsStep ()
-                  echo "automation step"
-                  parallel(
-                     a: {
-                       echo "This is branch a"
-                     },
-                     b: {
-                       echo "This is branch b"
-                     }
-                  )
-                  sleep 5
-              }
+          steps{
+               snDevOpsStep ()
+               echo "automation step"
+               sleep 5
+           }
       }
       
       stage("sonar") {
-             steps{
-                  snDevOpsStep ()
-                  echo "sonar scan"
-                  sleep 5
-              }
+          steps{
+               snDevOpsStep ()
+               echo "sonar scan"
+               sleep 5
+           }
       }
       stage('Scan') {
             parallel {
