@@ -48,7 +48,7 @@ pipeline {
                sleep 5
            }
       }
-      stage('long step') {
+      stage("long step") {
             parallel {
                stage("tpsr scan") {
                       agent {
