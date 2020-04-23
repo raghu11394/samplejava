@@ -42,6 +42,9 @@ pipeline {
            }
       }
       stage("dummy") {
+          when {
+                   expression { return false }
+          }
           steps{
                snDevOpsStep ()
                echo "dummy step"
