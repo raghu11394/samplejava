@@ -25,14 +25,6 @@ pipeline {
                 }
           }
         }
-    
-      stage("auto") {
-          steps{
-               snDevOpsStep ()
-               echo "automation step"
-               sleep 5
-           }
-      }
       
       stage("sonar") {
           steps{
