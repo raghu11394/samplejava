@@ -30,6 +30,14 @@ pipeline {
              steps{
                   snDevOpsStep ()
                   echo "automation step"
+                  parallel(
+                     a: {
+                       echo "This is branch a"
+                     },
+                     b: {
+                       echo "This is branch b"
+                     }
+                  )
                   sleep 5
               }
       }
@@ -41,23 +49,25 @@ pipeline {
                   sleep 5
               }
       }
+      stage('Scan') {
+            parallel {
+               stage("tpsr scan") {
+                      steps{
+                           snDevOpsStep ()
+                           echo "TPSR scan in progress"
+                           sleep 5
+                       }
+               }
       
-      stage("tpsr scan") {
-             steps{
-                  snDevOpsStep ()
-                  echo "TPSR scan in progress"
-                  sleep 5
-              }
+               stage("Security scan") {
+                      steps{
+                           snDevOpsStep ()
+                           echo "Security/Vulnarability scan in progress"
+                           sleep 5
+                       }
+               }
+            }
       }
-      
-      stage("Security scan") {
-             steps{
-                  snDevOpsStep ()
-                  echo "Security/Vulnarability scan in progress"
-                  sleep 5
-              }
-      }
-      
       stage("Push the artifact") {
              steps{
                   snDevOpsStep ()
