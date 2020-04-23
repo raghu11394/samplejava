@@ -44,9 +44,9 @@ pipeline {
       stage('Scan') {
             parallel {
                stage("tpsr scan") {
-                      agent {
-                        label "master"
-                      }
+                     // agent {
+                     //   label "master"
+                     // }
                       steps{
                            snDevOpsStep ()
                            echo "TPSR scan in progress"
@@ -55,9 +55,9 @@ pipeline {
                }
       
                stage("Security scan") {
-                     agent {
-                        label "master"
-                      }
+                    // agent {
+                    //    label "master"
+                    //  }
                       steps{
                            snDevOpsStep ()
                            echo "Security/Vulnarability scan in progress"
