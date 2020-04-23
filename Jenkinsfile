@@ -45,7 +45,7 @@ pipeline {
             parallel {
                stage("tpsr scan") {
                       agent {
-                        label "docker-0005l9ghyuvx1"
+                        label "master"
                       }
                       steps{
                            snDevOpsStep ()
