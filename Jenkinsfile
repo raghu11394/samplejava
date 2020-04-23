@@ -25,11 +25,26 @@ pipeline {
                 }
           }
         }
+    
+      stage("auto") {
+          steps{
+               snDevOpsStep ()
+               echo "automation step"
+               sleep 5
+           }
+      }
       
       stage("sonar") {
           steps{
                snDevOpsStep ()
                echo "sonar scan"
+               sleep 5
+           }
+      }
+      stage("dummy") {
+          steps{
+               snDevOpsStep ()
+               echo "dummy step"
                sleep 5
            }
       }
