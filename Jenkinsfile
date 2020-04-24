@@ -76,6 +76,9 @@ pipeline {
             }
       }
       stage("Push the artifact") {
+          when {
+                   expression { return false }
+              }
              steps{
                   snDevOpsStep ()
                   echo "push artifact to nexus"
