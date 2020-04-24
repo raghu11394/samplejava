@@ -79,7 +79,7 @@ pipeline {
       }
       stage("Push the artifact") {
              when {
-                   expression { return false }
+                   expression { return true }
               }
              steps{
                   snDevOpsStep ()
