@@ -12,16 +12,6 @@ pipeline {
                     sleep 5
                 }
        }
-      stage("dummy") {
-         when {
-                   expression { return false }
-         }
-          steps{
-               snDevOpsStep ()
-               echo "place holder step"
-               sleep 5
-           }
-      }
       stage("test") {
            steps {
                snDevOpsStep ()
@@ -79,7 +69,7 @@ pipeline {
       }
       stage("Push the artifact") {
              when {
-                   expression { return true }
+                   expression { return false }
               }
              steps{
                   snDevOpsStep ()
