@@ -59,7 +59,7 @@ pipeline {
                       steps{
                            snDevOpsStep ()
                            echo "TPSR scan in progress"
-                           sleep 100
+                           sleep 5
                        }
                }
       
@@ -70,7 +70,7 @@ pipeline {
                       steps{
                            snDevOpsStep ()
                            echo "Security/Vulnarability scan in progress"
-                           sleep 100
+                           sleep 5
                        }
                }
             }
