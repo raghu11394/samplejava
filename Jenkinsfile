@@ -14,10 +14,12 @@ pipeline {
        }
       stage("test") {
            steps {
-               snDevOpsStep ()
-               echo "Testing"
-               sh 'mvn test'
-               sleep 3
+               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                  snDevOpsStep ()
+                  echo "Testing"
+                  sh 'mvn test'
+                  sleep 3
+               }
            }
           post {
                 always {
