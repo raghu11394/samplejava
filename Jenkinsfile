@@ -44,14 +44,6 @@ pipeline {
            }
       }
       
-      stage("dummy") {
-          steps{
-               snDevOpsStep ()
-               echo "place holder step"
-               sleep 5
-           }
-      }
-      
       stage("long step") {
             parallel {
                stage("tpsr scan") {
