@@ -28,57 +28,6 @@ pipeline {
           }
         }
     
-      stage("auto") {
-          steps{
-               snDevOpsStep ()
-               echo "automation step"
-               sleep 5
-           }
-      }
-      
-      stage("sonar") {
-          steps{
-               snDevOpsStep ()
-               echo "sonar scan"
-               sleep 5
-           }
-      }
-      
-      stage("long step") {
-            parallel {
-               stage("tpsr scan") {
-                      agent {
-                        label "master"
-                      }
-                      steps{
-                           snDevOpsStep ()
-                           echo "TPSR scan in progress"
-                           sleep 5
-                       }
-               }
-      
-               stage("Security scan") {
-                     agent {
-                        label "master"
-                      }
-                      steps{
-                           snDevOpsStep ()
-                           echo "Security/Vulnarability scan in progress"
-                           sleep 5
-                       }
-               }
-            }
-      }
-      stage("Push the artifact") {
-          when {
-                   expression { return false }
-              }
-             steps{
-                  snDevOpsStep ()
-                  echo "push artifact to nexus"
-                  sleep 5
-              }
-      }
       
       stage("deploy") {
              steps{
