@@ -20,12 +20,8 @@ pipeline {
                   sh 'mvn test'
                   sleep 3
                }
+             step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
            }
-          post {
-                always {
-                    junit '**/target/surefire-reports/*.xml' 
-                }
-          }
         }
     
       
