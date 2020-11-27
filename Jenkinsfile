@@ -20,7 +20,7 @@ pipeline {
                   sh 'mvn test'
                   sleep 3
                }
-            step([$class: 'Publisher'])
+            step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
            }
         }
     
