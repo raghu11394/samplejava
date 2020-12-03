@@ -8,7 +8,6 @@ pipeline {
                 steps {
                     snDevOpsStep ()
                     echo "Building" 
-                    sh 'mvn -X clean install -DskipTests'
                     sleep 5
                 }
        }
@@ -17,11 +16,8 @@ pipeline {
                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                   snDevOpsStep ()
                   echo "Testing"
-                  sh 'mvn test'
                   sleep 3
                }
-            step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
-           }
         }
     
       
