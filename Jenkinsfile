@@ -13,7 +13,6 @@ pipeline {
        }
       stage("test") {
            steps {
-               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                   snDevOpsStep ()
                   echo "Testing"
                   sleep 3
