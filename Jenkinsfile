@@ -6,14 +6,12 @@ pipeline {
    stages {
        stage("build") {
                 steps {
-                    snDevOpsStep ()
                     echo "Building" 
                     sleep 5
                 }
        }
       stage("test") {
            steps {
-                  snDevOpsStep ()
                   echo "Testing"
                   sleep 3
                }
