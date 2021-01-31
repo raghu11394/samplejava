@@ -25,7 +25,7 @@ pipeline {
                   snDevOpsStep ()
                   echo "deploy in prod"
                   sleep 5
-                  snDevOpsChange()              
+                 // snDevOpsChange()              
               }
       }
       
