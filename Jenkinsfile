@@ -22,7 +22,11 @@ pipeline {
              steps{
                   echo "deploy in prod"
                   sleep 5
-                  snDevOpsChange()              
+                  snDevOpsChange(
+                  changeRequestDetails: """
+           {
+}
+                  """)              
               }
       }
       
