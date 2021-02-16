@@ -22,15 +22,7 @@ pipeline {
              steps{
                   echo "deploy in prod"
                   sleep 5
-                  snDevOpsChange(
-changeRequestDetails: """
-           {
-	"setCloseCode": false,
-	"attributes": {
-		"description":  "DevOps System testing"
-	}
-}
-                  """)              
+                  snDevOpsChange()              
               }
       }
       
