@@ -11,7 +11,7 @@ public class AppTest {
     
     @Test 
     public void test2() { 
-        Assert.assertTrue(true); 
+        throw new RuntimeException();
     }
 }
  
