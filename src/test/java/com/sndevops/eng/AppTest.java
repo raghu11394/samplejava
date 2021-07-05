@@ -1,6 +1,6 @@
 package com.sndevops.eng;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Test;
+import org.junit.Assert;
 import org.junit.Ignore;
 
 public class AppTest {
